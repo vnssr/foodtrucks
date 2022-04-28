@@ -45,9 +45,6 @@ def check_and_load_index():
 ###########
 ### APP ###
 ###########
-@app.route('/')
-def index():
-    return render_template('index.html')
 
 @app.route('/debug')
 def test_es():
