@@ -10,6 +10,10 @@ export default function Intro() {
         comprehensive tutorial on getting started with Docker targeted
         especially at beginners.
       </p>
+      <p>Kanat has taken it apart and reassembled it, so that the deployment
+        now contains separate containers for frontend and backend, as well as
+        an instance of Elasticsearch.
+      </p>
       <p>
         The app is built with Flask on the backend and Elasticsearch is the
         engine powering the search.
