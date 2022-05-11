@@ -20,8 +20,8 @@ jobs:
       run: |
         cd backend && \
         docker build . --file Dockerfile \
-        --tag ft-backend:$(date +%s) \
-        --tag ft-backend:latest
+        --tag ghcr.io/${{ github.actor }}/ft-backend:$(date +%s) \
+        --tag ghcr.io/${{ github.actor }}/ft-backend:latest
     - name: Publish the images
       run: | 
         docker push ghcr.io/${{ github.actor }}/ft-backend:$(date +%s) 
