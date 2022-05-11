@@ -10,4 +10,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build ./backend --file Dockerfile --tag ft-backend:$(date +%s) --tag ft-backend:latest
+      run: |
+        cd backend && \
+        docker build . --file Dockerfile \
+        --tag ft-backend:$(date +%s) \
+        --tag ft-backend:latest
