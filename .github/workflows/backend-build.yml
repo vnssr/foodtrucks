@@ -8,10 +8,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - name: Check out the repo
+      uses: actions/checkout@v3
+    - name: Log in to the container registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build the Docker image
       run: |
         cd backend && \
         docker build . --file Dockerfile \
         --tag ft-backend:$(date +%s) \
         --tag ft-backend:latest
+    - name: Publish the images
+      run: 
+        - docker push ghcr.io/${{ github.actor }}/ft-backend:$(date +%s) 
+        - docker push ghcr.io/${{ github.actor }}/ft-backend:latest
+
