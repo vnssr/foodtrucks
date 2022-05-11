@@ -23,7 +23,7 @@ jobs:
         --tag ft-backend:$(date +%s) \
         --tag ft-backend:latest
     - name: Publish the images
-      run: 
-        - docker push ghcr.io/${{ github.actor }}/ft-backend:$(date +%s) 
-        - docker push ghcr.io/${{ github.actor }}/ft-backend:latest
+      run: | 
+        docker push ghcr.io/${{ github.actor }}/ft-backend:$(date +%s) 
+        docker push ghcr.io/${{ github.actor }}/ft-backend:latest
 
