@@ -5,7 +5,10 @@ from flask import Flask, jsonify, request, render_template
 import sys
 import requests
 
-es = Elasticsearch(host='es')
+class Config:
+    ES_HOST = os.environ.get('ELASTIC_HOST', 'es')
+
+es = Elasticsearch(host=Config.ES_HOST)
 
 app = Flask(__name__)
 
